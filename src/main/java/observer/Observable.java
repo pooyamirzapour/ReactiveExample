@@ -1,7 +1,7 @@
 package observer;
 
-public interface SubjectLibrary {
+public interface Observable {
     void subscribeObserver(Observer observer);
     void unsubscribeObserver(Observer observer);
-    void notifyObserver(Observer observer);
+    void notifyObserver();
 }

@@ -9,9 +9,9 @@ public class Ambiguous {
 
     public static void main(String[] args) throws InterruptedException {
         Observable<String> observable = Observable.interval(1, TimeUnit.SECONDS)
-                .map(e->"obs1:" +e).take(10);
+                .map(e->"obs1:" +e).take(1);
 
-        Observable<String> observable2 = Observable.interval(1, TimeUnit.MICROSECONDS)
+        Observable<String> observable2 = Observable.interval(100, TimeUnit.MILLISECONDS)
                 .map(e->"obs2:" +e).take(10);
 
         Observable.amb(Arrays.asList(observable,observable2)).subscribe(System.out::println);

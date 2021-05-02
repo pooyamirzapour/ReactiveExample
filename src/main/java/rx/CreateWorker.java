@@ -17,7 +17,6 @@ public class CreateWorker {
 
         });
 
-       // Assert.assertTrue(result.equals("first action"));
 
     }
 }

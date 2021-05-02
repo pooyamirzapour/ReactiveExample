@@ -8,17 +8,25 @@ public class ComputationScheduler {
     public static void main(String[] args) throws InterruptedException {
         Observable<String> observable = Observable.just("Hi","Hey")
                 .subscribeOn(Schedulers.computation());
-        observable.subscribe(e-> compute());
-        observable.subscribe(e-> compute());
-        observable.subscribe(e-> compute());
-        observable.subscribe(e-> compute());
-        observable.subscribe(e-> compute());
+        observable.subscribe(ComputationScheduler::compute);
+//        observable.subscribe(e-> compute());
+//        observable.subscribe(e-> compute());
+//        observable.subscribe(e-> compute());
+//        observable.subscribe(e-> compute());
+//        observable.subscribe(e-> compute());
+//        observable.subscribe(e-> compute());
+//        observable.subscribe(e-> compute());
 
-        Thread.sleep(15000);
+        Thread.sleep(5000);
     }
 
-    public static void compute() throws InterruptedException {
+    private static void compute(String s) throws InterruptedException {
         Thread.sleep(1000);
         System.out.println("Computation Done by:"+ Thread.currentThread().getName());
     }
+
+//    public static void compute() throws InterruptedException {
+//        Thread.sleep(1000);
+//        System.out.println("Computation Done by:"+ Thread.currentThread().getName());
+//    }
 }
